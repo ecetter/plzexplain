@@ -44,9 +44,9 @@ $ squeue -u <userid>
 ```
 
 
-# Useful Slurm Commands
+## Useful Slurm Commands
 
-## Gathering System Information
+### Gathering System Information
 
 | Command | Description |
 | ---- | ---- |
@@ -58,14 +58,14 @@ $ squeue -u <userid>
 | top -u <userid> | displays your own processor activity on a particular node (press 'q' to quit) |
 | sprio | shows how job priority is designated |
 
-## Submitting Jobs
+### Submitting Jobs
 
 | Command | Description |
 | ---- | ---- |
 | sbatch <submission-script> | submits your job to the scheduler |
 | salloc | requests an interactive job on compute nodes |
 
-## Monitoring Jobs
+### Monitoring Jobs
 
 | Command | Description |
 | ---- | ---- |
@@ -76,7 +76,7 @@ $ squeue -u <userid>
 | scancel <jobid> | cancels a job |
 
 
-# Interactive Allocations Using salloc
+## Interactive Allocations Using salloc
 
 The submit nodes of RC are designed to handle very simple computational tasks such as connections, file editing, and submitting jobs. Performing intensive computations on submit nodes will adversely impact other users' ability to interact with the system. For this reason, users that want to perform computations interactively should do so on compute nodes using the [salloc](https://slurm.schedmd.com/salloc.html) command. To work interactively on a compute node with a single processor core for half an hour, use the following command:
 ```
@@ -86,7 +86,7 @@ $ salloc --nodes=1 --ntasks=1 --mem=1G --time=00:30:00
 The above command submits a request to the scheduler to queue an interactive job, and when the scheduler is able to place the request, the prompt will return. The hostname in the prompt will change from the previous submit node name to a compute node. Now on a compute node, intensive computational tasks can be performed interactively. This session will be terminated either when the time limit is reached or when the **exit** command is entered. After the interactive session completes, the session will return to the previous submit node.
 
 
-# Multithreading
+## Multithreading
 
 Some software like the linear algebra routines in NumPy and Matlab are able to use multiple processor cores via libraries that have been written using shared-memory parallel programming models, like OpenMP. OpenMP programs, for instance, run as multiple "threads" on a single node with each thread using one processor core. Below is a sample Slurm submission script for a multithreaded job:
 
@@ -113,7 +113,7 @@ matlab -nodisplay -nosplash -r mthread_parfor
 For a multithreaded single-node job, make sure that the product of ntasks and cpus-per-task is equal to or less than the number of processor cores on a node. Only codes that have been explicitly written to use multiple threads will be able to take advantage of multiple processor cores. Using a value of cpus-per-task greater than 1 for a code that has not been parallelized will not improve its performance and will instead waste resources.
 
 
-# Parallel Jobs Using MPI
+## Parallel Jobs Using MPI
 
 Many scientific programs use a form of distributed-memory parallelism based on MPI (Message Passing Interface). These programs are able to use multiple processor cores on multiple nodes simultaneously. The sample submission script below uses 12 processor cores on each of 3 nodes:
 
@@ -137,7 +137,7 @@ srun mympiprog <args>
 MPI jobs are composed of multiple processes running across one or more nodes. The processes coordinate through point-to-point and collective operations. Slurm recommends using the **srun** command instead of using **mpirun** or **mpiexec**. Only programs that have been explicitly written to run in parallel can take advantage of multiple processor cores on multiple nodes. Using a value of ntasks greater than 1 for a program that has not been parallelized will not improve its performance and will instead waste resources.
 
 
-# Multinode, Multithreaded Jobs
+## Multinode, Multithreaded Jobs
 
 Some software combines multithreading with the multinode parallelism using a hybrid OpenMP/MPI approach. Below is a sample submission script for this case:
 
@@ -164,7 +164,7 @@ srun mympiprog <args>
 For a OpenMP/MPI program, the above submission script would produce 12 MPI processes per node. When an OpenMP parallel directive is encountered, each process would execute the work using 4 processor cores. 
 
 
-# GPU Jobs
+## GPU Jobs
 
 GPUs are available on RC. To use GPUs, add a scheduler directive with the **--gres** option:
 
@@ -190,7 +190,7 @@ python pyscript.py
 Only software that has been explicitly written to run on GPUs can take advantage of GPUs. Adding the **--gres** option to a Slurm script for a CPU-only program will not speed up the execution time and will just waste resources and increase the queue time. Furthermore, some codes are only written to use a single GPU, so avoid requesting multiple GPUs unless the program can use them.
 
 
-# Job Dependencies
+## Job Dependencies
 
 Job dependencies in Slurm allow multiple jobs to be run in sequence. This is useful for jobs that need to run for much longer than the time limit or when a second job can only be started after the first job is finished because of a dependency between the two.
 
