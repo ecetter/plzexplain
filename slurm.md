@@ -24,7 +24,7 @@ Below is a sample Slurm script for running a Python task using a Conda environme
 
 module purge
 module load anaconda3
-conda activate py_env
+source activate py_env
 
 python pyscript.py
 ```
@@ -182,7 +182,7 @@ GPUs are available on RC. To use GPUs, add a scheduler directive with the **--gr
 
 module purge
 module load anaconda3
-conda activate py_env
+source activate py_env
 
 python pyscript.py
 ```
