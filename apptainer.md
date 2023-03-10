@@ -16,6 +16,15 @@ an application (or collection of applications) requires to run
 
 A container is an abstraction at the application layer. Multiple containers can run on the same machine and share the host kernel with other containers, each running as isolated processes.
 
+## Container Benefits
+
+Containers change the user space into a swappable component.
+- Flexibility: Bring Your Own Environment (BYOE)
+- Reproducibility: Complete control over software versions
+- Portability: Run a container on your laptop or on HPC systems
+- Performance: Similar performance characteristics as native applications
+- Compatibility: Open standard that is supported on all major Linux distributions
+
 
 ## Useful Apptainer Commands
 
