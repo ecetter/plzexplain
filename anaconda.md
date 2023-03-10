@@ -36,7 +36,7 @@ source ~/.bashrc
 
 Alternatively, the environment can be activated using *source* instead of *conda*.
 ```
-source activate <environment>
+source activate \<environment>
 ```
 
 Another way to resolve this is to add the following shebang to the top of a slurm job script:
@@ -58,15 +58,15 @@ Yet another alternative is to use the RISE anaconda installation which sets up t
 
 | Command | Description |
 | ---- | ---- |
-| conda create –n <env_name> | Creates a conda environment by name |
-| conda create –p <env_path> | Creates a conda environment by location |
+| conda create –n \<env_name> | Creates a conda environment by name |
+| conda create –p \<env_path> | Creates a conda environment by location |
 | conda env list | Lists all conda environments |
-| conda env remove –n <env_name> | Removes a conda environment by name |
-| conda activate <env_name> | Activates a conda environment by name |
+| conda env remove –n \<env_name> | Removes a conda environment by name |
+| conda activate \<env_name> | Activates a conda environment by name |
 | conda list | While in an active environment, lists all packages |
 | conda deactivate | Deactivates the active conda environment |
-| conda install <package> | While in an active environment, installs a package |
-| conda search <package> | Uses conda to search for a package |
+| conda install \<package> | While in an active environment, installs a package |
+| conda search \<package> | Uses conda to search for a package |
 | conda env export > env_name.yml | Exports active environment to a file |
 | conda env create –f env_name.yml | Loads environment from a file |
 

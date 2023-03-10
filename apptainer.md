@@ -30,11 +30,11 @@ Containers change the user space into a swappable component.
 
 | Command | Description |
 | ---- | ---- |
-| apptainer build <container> <definition> | Builds a container from a definition file |
-| apptainer shell <container> | Runs a shell within a container |
-| apptainer exec <container> <command> | Runs a command within a container |
-| apptainer run <container> | Runs a container where a runscript is defined |
-| apptainer pull <resource>://<container> | Pulls a container from a container registry |
-| apptainer build --sandbox <sbox> <container> | Builds a sandbox from a container |
-| apptainer build <container> <sbox> | Builds a container from a sandbox |
+| apptainer build \<container> \<definition> | Builds a container from a definition file |
+| apptainer shell \<container> | Runs a shell within a container |
+| apptainer exec \<container> \<command> | Runs a command within a container |
+| apptainer run \<container> | Runs a container where a runscript is defined |
+| apptainer pull \<resource>://\<container> | Pulls a container from a container registry |
+| apptainer build --sandbox \<sbox> \<container> | Builds a sandbox from a container |
+| apptainer build \<container> \<sbox> | Builds a container from a sandbox |
 

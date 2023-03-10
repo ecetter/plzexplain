@@ -40,7 +40,7 @@ $ sbatch pyjob.slurm
 
 The job should be submitted to the scheduler from a submit node on RC. The scheduler will keep the job in the job queue until the job gains sufficient priority to run on a compute node. Depending on the nature of the job and the availability of computational resources, the queue time will vary between seconds to many days. To check the status of queued and running jobs, use the [squeue](https://slurm.schedmd.com/squeue.html) command:
 ```
-$ squeue -u <userid>
+$ squeue -u \<userid>
 ```
 
 
@@ -55,14 +55,14 @@ $ squeue -u <userid>
 | lscpu | provides information about the processors on a particular node |
 | sinfo | shows how RC's nodes are being used |
 | top | displays processor activity on a particular node (press 'q' to quit) |
-| top -u <userid> | displays your own processor activity on a particular node (press 'q' to quit) |
+| top -u \<userid> | displays your own processor activity on a particular node (press 'q' to quit) |
 | sprio | shows how job priority is designated |
 
 ### Submitting Jobs
 
 | Command | Description |
 | ---- | ---- |
-| sbatch <submission-script> | submits your job to the scheduler |
+| sbatch \<submission-script> | submits your job to the scheduler |
 | salloc | requests an interactive job on compute nodes |
 
 ### Monitoring Jobs
@@ -70,10 +70,10 @@ $ squeue -u <userid>
 | Command | Description |
 | ---- | ---- |
 | squeue | displays all jobs that are running or are queued |
-| squeue -u <userid> | displays jobs under "userid" that are running or are queued |
-| squeue -j <jobid> | displays information about a specific job | 
-| scontrol show jobid <jobid> | displays details information about a specific job |
-| scancel <jobid> | cancels a job |
+| squeue -u \<userid> | displays jobs under "userid" that are running or are queued |
+| squeue -j \<jobid> | displays information about a specific job | 
+| scontrol show jobid \<jobid> | displays details information about a specific job |
+| scancel \<jobid> | cancels a job |
 
 
 ## Interactive Allocations Using salloc
