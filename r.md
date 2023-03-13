@@ -33,7 +33,7 @@ Searching for install instructions will usually get you across the finish line!
 
 Some R packages may require changes to the user environment before the package can be installed successfully within the R console. Typically, the user environment change is as simple as accessing a newer compiler version by loading a software module like *gcc* with
 ```
-module load gcc
+$ module load gcc
 ```
 
 Sometimes, installing R packages may be a little more involved. To install the *units* R package, for example, an additional library must be downloaded and installed locally in order for the package to be installed properly. To install the *units* R package on Roar Collab, perform the following commands in an interactive session on a compute node:
