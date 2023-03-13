@@ -67,6 +67,14 @@ $ sftp <userid>@submit.hpc.psu.edu
 After the **sftp** connection is made, navigational commands (i.e. **ls**, **cd**, etc) are performed on the remote connection normally, while navigational commands are performed on the local connection by appending the letter **l** (lowercase L) to the commands (i.e. **lls**, **lcd**, etc). Files are transferred from the local device to the remote device using the **put <filename>** command, and files are transferred from the remote device to the local device using the **get <filename>** command. The connection is terminated with the **exit** command.
 
 
+## rsync
+
+Yet another file transfer option is **rsync**. The **rsync** tool is widely used for backups and mirroring and as an improved cophy command for everyday use. The **rsync** command takes the form
+```
+$ rsync [options] <source-user-id>@<source-host>[:<file-location>] <destination-user-id>@<destination-host>[:<file-location>]
+```
+
+
 ## Transfers Using Globus
 
 For files that are multiple GB in size or larger, it is recommended to use Globus when practical to do so. Globus is a file transfer tool that automates the activity of managing file transfers, such as montitoring performance, retrying failed transfers, recovering from faults automatically whenever possible, and reporting status.
