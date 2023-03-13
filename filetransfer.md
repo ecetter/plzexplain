@@ -77,7 +77,7 @@ $ rsync [options] <source-user-id>@<source-host>[:<file-location>] <destination-
 
 ## Transfers Using Globus
 
-For files that are multiple GB in size or larger, it is recommended to use Globus when practical to do so. Globus is a file transfer tool that automates the activity of managing file transfers, such as montitoring performance, retrying failed transfers, recovering from faults automatically whenever possible, and reporting status.
+For files that are multiple GBs in size or larger, it is recommended to use Globus when practical to do so. Also, if issues due to an unreliable connection arise, transferring via Globus may be a good option. Globus is a file transfer tool that automates the activity of managing file transfers, such as montitoring performance, retrying failed transfers, recovering from faults automatically whenever possible, and reporting status.
 
 Globus endpoints must be install on both the source and destination systems. Both Roar and Roar Collab have Globus endpoints available.
 ```
