@@ -40,7 +40,7 @@ $ sbatch pyjob.slurm
 
 The job should be submitted to the scheduler from a submit node on RC. The scheduler will keep the job in the job queue until the job gains sufficient priority to run on a compute node. Depending on the nature of the job and the availability of computational resources, the queue time will vary between seconds to many days. To check the status of queued and running jobs, use the [squeue](https://slurm.schedmd.com/squeue.html) command:
 ```
-$ squeue -u \<userid>
+$ squeue -u <userid>
 ```
 
 
