@@ -60,3 +60,7 @@ $ R
 
 For R users, especially on Roar, make sure your version of R remains consistent. Roar has several R versions available, and when you install a package in one version, it is not accessible when you are operating in another version. Always check the R version and remain consistent!
 
+## Parallel Processing in R
+
+
+
