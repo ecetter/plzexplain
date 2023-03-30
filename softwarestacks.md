@@ -3,9 +3,9 @@
 
 ICDS systems offer the entire user community availability to software at three software stack levels.
 
-1. System software stack: contains software that is available to all users by default upon logging into the system without a need to load anything.
-2. Central software stack: contains software that is available to all user by default, but the software modules must be loaded in order to access them.
-3. RISE software stack: not available to users by default, but once the RISE software stack is loaded, users can access software modules normally.
+- System software stack: contains software that is available to all users by default upon logging into the system without a need to load anything.
+- Central software stack: contains software that is available to all user by default, but the software modules must be loaded in order to access them.
+- RISE software stack: not available to users by default, but once the RISE software stack is loaded, users can access software modules normally.
 
 
 ## Lmod
