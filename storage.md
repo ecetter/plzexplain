@@ -1,7 +1,7 @@
 
 # File Storage
 
-Both Roar and Roar Collab offer several file storage options for users, each with their own quotas and data retention policies. The multiple options are available for users to optimize their workflows.
+Both Roar Collab and Roar offer several file storage options for users, each with their own quotas and data retention policies. The multiple options are available for users to optimize their workflows.
 
 
 ## Storage Information
@@ -10,8 +10,10 @@ Both Roar and Roar Collab offer several file storage options for users, each wit
 | ---- | ---- | ---- | ---- | ---- |
 | Home | /storage/home | 16 GB | 500,000 files | Daily snapshot |
 | Work | /storage/work | 128 GB | 1 million files | Daily snapshot |
-| Scratch | /gpfs/scratch (Roar)<br>/scratch (RC) | None | 1 million files | No Backup, Files purged after 30 days |
-| Group | /gpfs/group (Roar)<br>/storage/group (RC) | Allocation-dependent | Allocation-dependent | Daily snapshot |
+| Scratch | /scratch (RC)<br>/gpfs/scratch (Roar) | None | 1 million files | No Backup, Files purged after 30 days |
+| Group | /storage/group (RC)<br>/gpfs/group (Roar) | Allocation-dependent | Allocation-dependent | Daily snapshot |
+
+Home should primarily be used for configuration files and should not be used as a primary storage location for data. Work should be used as the primary personal data storage location. Scratch should be used for temporary files and for reading and writing large data files.
 
 
 ## Check Usage
@@ -35,3 +37,15 @@ For a real-time look into the number of files in a storage location, use the fol
 ```
 $ find <storage_location> -type f | wc -l
 ```
+
+
+## Managing Large Configuration Files
+
+Home is the primary location for configuration files, and many software packages will automatically place configuration files in this location. Sometimes, these configuration files can grow in size such that the Home directory approaches its storage quota limit. If this issue occurs, it is simple to move the configuration files from Home to Work and place a link in Home that points to the configuration files' new location in Work.
+
+For instance, Anaconda stores its configuration files in *~/.conda* by default, and this directory often grows to multiple GBs in size which uses a significant portion of the Home directory's allocated memory. The *~/.conda* directory can be moved to Work and can be replaced by a link in Home that points to the new location. This can be carried out with the following commands:
+```
+$ mv ~/.conda /storage/work/$(whoami)
+$ ln -s /storage/work/$(whoami)/.conda ~/.conda
+```
+
