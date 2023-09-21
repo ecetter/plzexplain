@@ -40,7 +40,7 @@ source ~/.bashrc
 
 Alternatively, the environment can be activated using `source` instead of `conda`.
 ```
-source activate \<environment>
+source activate <environment>
 ```
 
 Another way to resolve this is to add the following shebang to the top of a slurm job script:
@@ -50,7 +50,7 @@ Another way to resolve this is to add the following shebang to the top of a slur
 
 Yet another option would be to put the following commands before activating the conda environment:
 ```
-module load \<custom anaconda module>
+module load <custom anaconda module>
 CONDAPATH=`which conda`
 eval "$(${CONDAPATH} shell.bash hook)"
 ```
@@ -65,9 +65,9 @@ To reiterate, the **anaconda** module available on RC is configured such that th
 
 To access a conda environment within a Jupyter Server session, the *ipykernel* package must be installed within the environment. To do so, enter the environment and run the following commands:
 ```
-(base) $ conda activate \<environment>
+(base) $ conda activate <environment>
 (\<environment>) $ conda install -y ipykernel
-(\<environment>) $ ipython kernel install --user --name=\<environment>
+(\<environment>) $ ipython kernel install --user --name=<environment>
 ```
 
 After the *ipykernel* package is successfully installed within this environment, a Jupyter Server session can be launched via the Portal. When submitting the form to launch the session, under the *Conda environment type* field, select the *Use custom text field* option from the dropdown menu. Then enter the following into the *Environment Setup* text field:
@@ -82,23 +82,23 @@ After launching and entering the session, the environment is displayed in the ke
 
 To launch an RStudio Interactive App session, RStudio must have access to an installation of R. R can either be installed within the conda environment itself, or it can be loaded from the software stack. Typically, R will be installed by default when installing R packages within a conda environment; therefore, it is recommended when using conda environments within RStudio to simply utilize the environment's own R installation. To create an environment containing an R installation, run the following command:
 ```
-(base) $ conda create -y -n \<environment> r
+(base) $ conda create -y -n <environment> r
 ```
 Alternatively, R can simply be added to an existing environment by entering that environment and installing using the following command:
 ```
-(<environment>) $ conda install r \<plus any additional R packages>
+(<environment>) $ conda install r <plus any additional R packages>
 ```
-R packages can installed directly via Anaconda within the environment as well. R packages available in Anaconda are usually named `r-\<package name>` such as `r-plot3d`, `r-spatial`, or `r-ggplot`.
+R packages can installed directly via Anaconda within the environment as well. R packages available in Anaconda are usually named `r-<package name>` such as `r-plot3d`, `r-spatial`, or `r-ggplot`.
 
 After R and any necessary R packages are installed within the environment, an RStudio session can be launched via the Portal. When submitting the form to launch the session, under the *Environment type* field, select the *Use custom text field* option from the dropdown menu. Then enter the following into the *Environment Setup* text field:
 ```
 module load anaconda
-conda activate \<environment>
-export CONDAENVLIB=~/.conda/envs/\<environment>/lib
+conda activate <environment>
+export CONDAENVLIB=~/.conda/envs/<environment>/lib
 export LD_LIBRARY_PATH=$CONDAENVLIB:$LD_LIBRARY_PATH
 ```
 
-Please note that the default location of conda environments is in `~/.conda/envs`, which is why the `CONDAENVLIB` variable is being set to `~/.conda/envs/\<environment>/lib`. If the environment is instead installed a non-default location, then the `CONDAENVLIB` variable should be set accordingly. The two `export` commands in the block above are required because RStudio often has an issue loading some libraries while accessing the conda envrionment's R installation. Explicitly adding the conda environment's *lib* directory to the `LD_LIBRARY_PATH` variable seems to clear this issue up.
+Please note that the default location of conda environments is in `~/.conda/envs`, which is why the `CONDAENVLIB` variable is being set to `~/.conda/envs/<environment>/lib`. If the environment is instead installed a non-default location, then the `CONDAENVLIB` variable should be set accordingly. The two `export` commands in the block above are required because RStudio often has an issue loading some libraries while accessing the conda envrionment's R installation. Explicitly adding the conda environment's *lib* directory to the `LD_LIBRARY_PATH` variable seems to clear this issue up.
 
 
 ## Useful Anaconda Commands
