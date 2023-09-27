@@ -1,6 +1,7 @@
 
 # R
 
+R is a free software environment for statistical computing and graphics.
 
 
 ## Install R Packages
@@ -15,7 +16,7 @@ After installation, packages can then be loaded using the following command in t
 > library( <package> )
 ```
 
-It is always wise to review dependencies of any packages you would like to install because you may have to load additional software in your environment before launching the R console.
+It is recommended to review dependencies of any packages you would like to install because you may have to load additional software in your environment before launching the R console.
 
 
 ## R Package Installation Example
@@ -31,12 +32,12 @@ To install the ggplot2 R package, first search ggplot2 online to see if there ar
 
 Searching for install instructions will usually get you across the finish line!
 
-Some R packages may require changes to the user environment before the package can be installed successfully within the R console. Typically, the user environment change is as simple as accessing a newer compiler version by loading a software module like *gcc* with
+Some R packages may require changes to the user environment before the package can be installed successfully within the R console. Typically, the user environment change is as simple as accessing a newer compiler version by loading a software module like *intel* with
 ```
-$ module load gcc
+$ module load intel
 ```
 
-Sometimes, installing R packages may be a little more involved. To install the *units* R package, for example, an additional library must be downloaded and installed locally in order for the package to be installed properly. To install the *units* R package on Roar Collab, perform the following commands in an interactive session on a compute node:
+Sometimes, installing R packages may be a little more involved. To install the *units* R package, for example, an additional library must be downloaded and installed locally in order for the package to be installed properly. To install the *units* R package on Roar Collab (RC), perform the following commands in an interactive session on a compute node:
 ```
 $ cd ~/scratch
 $ wget https://downloads.unidata.ucar.edu/udunits/2.2.28/udunits-2.2.28.tar.gz
@@ -58,9 +59,11 @@ $ R
 
 ## R Versions on Roar
 
-For R users, especially on Roar, make sure your version of R remains consistent. Roar has several R versions available, and when you install a package in one version, it is not accessible when you are operating in another version. Always check the R version and remain consistent!
+R users should make sure that the version of R remains consistent. RC has several R versions available, and when a package is installed in one version, it is not always accessible when operating in another version. Always check the R version and remain consistent!
 
 ## Parallel Processing in R
+
+
 
 
 
