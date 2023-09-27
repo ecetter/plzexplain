@@ -1,16 +1,15 @@
 
 # Software Stacks
 
-ICDS systems offer the entire user community availability to software at three software stack levels.
+The software stack on Roar Collab (RC) provides many software modules to the entire user community. There are two software stacks available on RC.
 
 - System software stack: contains software that is available to all users by default upon logging into the system without a need to load anything.
-- Central software stack: contains software that is available to all user by default, but the software modules must be loaded in order to access them.
-- RISE software stack: not available to users by default, but once the RISE software stack is loaded, users can access software modules normally.
+- Central software stack: contains software that is available to all users by default, but the software modules must be loaded in order to access them.
 
 
 ## Lmod
 
-Both the central and RISE software stacks use Lmod to package the available software. Lmod is a useful tool for manager user software environments using environment modules that can be dynaically added or removed using module files. Lmod is hierarchical, so sub-modules can be nested under a module that is dependant upon. Lmod alters environment variables, most notably the *$PATH* variable, in order to make certain software packages reachable by the user environment.
+The central software stack uses [Lmod](https://lmod.readthedocs.io/en/latest/) to package the available software. Lmod is a useful tool for manager user software environments using environment modules that can be dynaically added or removed using module files. Lmod is hierarchical, so sub-modules can be nested under a module that is dependant upon. Lmod alters environment variables, most notably the `$PATH` variable, in order to make certain software packages reachable by the user environment.
 
 
 ### Useful Lmod Commands
@@ -42,22 +41,3 @@ $ module avail
 ```
 
 
-## RISE Software Stack
-
-The supplemental RISE software stack is available for users to load and is more flexible and dynamic than the system and central software stacks. The RISE software stack is not available in the user environment by default, so it must be loaded into the *$MODULEPATH* variable. To load the RISE software stack on Roar Collab, use
-```
-$ module use /storage/icds/RISE/sw8/modules
-```
-On Roar, use
-```
-$ module use /gpfs/group/RISE/sw7/modules
-```
-
-It is recommended to add a *$RISESWST* variable to your bash configuration to store the location of the RISE software stack. In the *~/.bashrc* file on Roar Collab, add the following:
-```
-export $RISESWST='/storage/icds/RISE/sw8/modules'
-```
-On Roar, add the following to the *~/.bashrc* file:
-```
-export $RISESWST='/gpfs/group/RISE/sw7/modules'
-```
