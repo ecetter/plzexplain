@@ -23,8 +23,8 @@ Below is a sample Slurm script for running a Python task using a Conda environme
 #SBATCH --time=00:01:00		   # set a limit on the total run time
 
 module purge
-module load anaconda3
-source activate py_env
+module load anaconda
+conda activate py_env
 
 python pyscript.py
 ```
@@ -38,7 +38,7 @@ If the above sample submission script was saved as **pyjob.slurm**, it would be 
 $ sbatch pyjob.slurm
 ```
 
-The job should be submitted to the scheduler from a submit node on RC. The scheduler will keep the job in the job queue until the job gains sufficient priority to run on a compute node. Depending on the nature of the job and the availability of computational resources, the queue time will vary between seconds to many days. To check the status of queued and running jobs, use the [squeue](https://slurm.schedmd.com/squeue.html) command:
+The job should be submitted to the scheduler from a submit node on RC. The scheduler will keep the job in the job queue until the job gains sufficient priority to run on a compute node. Depending on the nature of the job and the availability of computational resources, the queue time will vary between seconds to days. To check the status of queued and running jobs, use the [squeue](https://slurm.schedmd.com/squeue.html) command:
 ```
 $ squeue -u <userid>
 ```
@@ -78,12 +78,12 @@ $ squeue -u <userid>
 
 ## Interactive Allocations Using salloc
 
-The submit nodes of RC are designed to handle very simple computational tasks such as connections, file editing, and submitting jobs. Performing intensive computations on submit nodes will adversely impact other users' ability to interact with the system. For this reason, users that want to perform computations interactively should do so on compute nodes using the [salloc](https://slurm.schedmd.com/salloc.html) command. To work interactively on a compute node with a single processor core for half an hour, use the following command:
+The submit nodes of RC are designed to handle very simple computational tasks such as connections, file editing, and submitting jobs. Performing intensive computations on submit nodes will not only be computationally inefficient, but it will also adversely impact other users' ability to interact with the system. For this reason, users that want to perform computations interactively should do so on compute nodes using the [salloc](https://slurm.schedmd.com/salloc.html) command. To work interactively on a compute node with a single processor core for half an hour, use the following command:
 ```
 $ salloc --nodes=1 --ntasks=1 --mem=1G --time=00:30:00
 ```
 
-The above command submits a request to the scheduler to queue an interactive job, and when the scheduler is able to place the request, the prompt will return. The hostname in the prompt will change from the previous submit node name to a compute node. Now on a compute node, intensive computational tasks can be performed interactively. This session will be terminated either when the time limit is reached or when the **exit** command is entered. After the interactive session completes, the session will return to the previous submit node.
+The above command submits a request to the scheduler to queue an interactive job, and when the scheduler is able to place the request, the prompt will return. The hostname in the prompt will change from the previous submit node name to a compute node. Now on a compute node, intensive computational tasks can be performed interactively. This session will be terminated either when the time limit is reached or when the `exit` command is entered. After the interactive session completes, the session will return to the previous submit node.
 
 
 ## Multithreading
