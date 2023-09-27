@@ -1,9 +1,9 @@
 
 # Apptainer / Singularity
 
-Apptainer is a secure container platform designed for HPC use cases and is available on Roar and RC. Containers (or images) can either be pulled directly from a container repository or can be built from a definition file. A definition file or recipe file contains everything required to build a container. Building containers requires root privileges, so containers are built on your laptop and can be deployed on Roar and RC.
+Apptainer is a secure container platform designed for HPC use cases and is available on Roar Collab (RC). Containers (or images) can either be pulled directly from a container repository or can be built from a definition file. A definition file or recipe file contains everything required to build a container. Building containers requires root privileges, so containers are built on your personal device and can be deployed on RC.
 
-Software is continuously growing in complexity which can make managing the required user environment and wrangling dependent software an intractable problem. Containers address this issue by storing the software and all of it dependencies (including a minimal operating system) in a single image file, eliminating the need to install additional packages or alter the runtime environment. This makes the software both shareable and portable while the output becomes reproducible.
+Software is continuously growing in complexity which can make managing the required user environment and wrangling dependent software an intractable problem. Containers address this issue by storing the software and all of its dependencies (including a minimal operating system) in a single image file, eliminating the need to install additional packages or alter the runtime environment. This makes the software both shareable and portable while the output becomes reproducible.
 
 
 ## Container Basics
@@ -63,7 +63,7 @@ Container images can be made publicly available, and containers for many use cas
 
 ## Building Container Images
 
-Containers images can be made from scratch using a [definition file](https://apptainer.org/docs/user/latest/definition_files.html#definition-files), or recipe file, which is a text file that specifies the base image, the software to be installed, and other information. The documentation for the [apptainer build](https://apptainer.org/docs/user/main/cli/apptainer_build.html) command shows the full usage for the build command. Container images can also be bootstrapped from other images, found on Docker Hub for instance.
+Containers can be made from scratch using a [definition file](https://apptainer.org/docs/user/latest/definition_files.html#definition-files), or recipe file, which is a text file that specifies the base image, the software to be installed, and other information. The documentation for the [apptainer build](https://apptainer.org/docs/user/main/cli/apptainer_build.html) command shows the full usage for the build command. Container images can also be bootstrapped from other images, found on Docker Hub for instance.
 
 
 
