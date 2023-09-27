@@ -12,6 +12,9 @@ Globus endpoints must be installed on both the source and destination systems. R
 ```
 Roar Collab Endpoint:
 PennState_ICDS_RC
+
+Roar Collab Archive Endpoint:
+Archive_PennState_ICDS
 ```
 
 To transfer files with Globus, visit the [Globus website](https://www.globus.org/) and log in as a Penn State user with your Penn State access account. Select the File Manager tab on the left side of the Globus web interface and select the source and destination endpoints. The endpoints may require an additional login. The files and locations for the transfer can be selected graphically, and the transfer can be initiated by selecting *Start* above the source endpoint file preview window. The transfer will be handled by Globus, and typically, successful completion of the transfer will generate an email to your Penn State email.
