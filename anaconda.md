@@ -66,8 +66,8 @@ To reiterate, the **anaconda** module available on RC is configured such that th
 To access a conda environment within a Jupyter Server session, the *ipykernel* package must be installed within the environment. To do so, enter the environment and run the following commands:
 ```
 (base) $ conda activate <environment>
-(\<environment>) $ conda install -y ipykernel
-(\<environment>) $ ipython kernel install --user --name=<environment>
+(<environment>) $ conda install -y ipykernel
+(<environment>) $ ipython kernel install --user --name=<environment>
 ```
 
 After the *ipykernel* package is successfully installed within this environment, a Jupyter Server session can be launched via the Portal. When submitting the form to launch the session, under the *Conda environment type* field, select the *Use custom text field* option from the dropdown menu. Then enter the following into the *Environment Setup* text field:
