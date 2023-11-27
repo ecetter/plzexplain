@@ -23,6 +23,7 @@ A paid compute allocation provides access to specific compute resources for an i
 
 - Guaranteed job start time within one hour
 - No time request limit
+- No job preemption for non-burst jobs
 - Burst capability up to 4x of the allocation's compute resources
 - 5 TB of active group storage
 
